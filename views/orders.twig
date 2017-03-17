@@ -1,0 +1,31 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <h1>Orders list</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>User</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+<tr class="status">
+    
+</tr>
+        </tbody>
+    </table>
+    
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://localhost:3000');
+        socket.on('status', function(n){
+           
+            $('.status').prepend('<td>'+n+'</td>');
+        });
+ </script>
+    
+{% endblock %}

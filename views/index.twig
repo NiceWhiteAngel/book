@@ -1,0 +1,34 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <h1>Books list</h1>
+    
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Publication Year</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+       
+        <tbody>
+         {%for b in books%}
+<tr>
+    <td>{{b.name}}</td>
+    <td>{{b.author}}</td>
+    <td>{{b.publication_year}}</td>
+    <td>{{b.description}}</td>
+    <td>{{b.category.name}}</td>
+   
+    <td><a href="/acheter/{{b._id}}" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-shopping-cart"></i></a></td>
+    
+</tr>
+       {%endfor%}
+        </tbody>
+        
+    </table>
+{% endblock %}
